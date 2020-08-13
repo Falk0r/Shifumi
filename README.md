@@ -69,6 +69,9 @@ let myNotification = new Notification('Shifumi', {
             urgency: "critical"
           })
 ```
+## Aperçu de l'application :
+
+<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:6689930564289523712" height="741" width="504" frameborder="0" allowfullscreen="" title="Post intégré"></iframe>
 
 ## Pour l'utiliser :
 
@@ -87,3 +90,5 @@ npm start
 <p align="center">
   <img width="100" height="100" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Electron_Software_Framework_Logo.svg/1200px-Electron_Software_Framework_Logo.svg.png">
 </p>
+
+
