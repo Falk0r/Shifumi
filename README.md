@@ -84,11 +84,6 @@ npm install
 # Run the app
 npm start
 ```
-<div style="text-align:center;">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Electron_Software_Framework_Logo.svg/1200px-Electron_Software_Framework_Logo.svg.png"
-     alt="ElectronJS icon"
-     style="float: center; height: 100; width: 100" />
-</div>
 <p align="center">
-  <img width="600" height="200" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Electron_Software_Framework_Logo.svg/1200px-Electron_Software_Framework_Logo.svg.png">
+  <img width="100" height="100" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Electron_Software_Framework_Logo.svg/1200px-Electron_Software_Framework_Logo.svg.png">
 </p>
