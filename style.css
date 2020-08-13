@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+h1, h2{
+    height: 10vh;
+}
+h2{
+    font-size: 20px;
+}
+h2 span{
+    font-size: 30px;
+    color: darkblue;
+}
+.battle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 40vh;
+}
+img{
+    height: 120px;
+    cursor: pointer;
+}
+.img{
+    transform: rotateY(180deg);
+}
+.none{
+    display: none;
+}
+.result{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 10vh;
+}
+#result{
+    margin-top: 10px;;
+}
+.none{
+    display: none;
+}
+.result img{
+    height: 300px;
+}
+.loose{
+    color: white;
+    background-color: black;
+}
+.red{
+    color: red;
+}
+.opacity{
+    opacity: 0.1;
+}

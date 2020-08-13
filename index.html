@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <link rel="stylesheet" href="style.css">
+    <title>Le jeu du Shifumi</title>
+  </head>
+  <body>
+    <h1>&#9996;&#9994;&#128400; Shifumi &#128400;&#9994;&#9996;</h1>
+    <div class="result none">
+      <img src="">
+      <button id="retry">RETRY</button>
+    </div>
+    <h2>Player 1 &#x1F913; <span id="score1">0</span> : <span id="score2">0</span> &#x1F916; Player 2</h2>
+
+    <div class="battle" hidden>
+      <div class="player1">
+        <img src="./assets/pierre.png" id="pierre" data-choice="1" class="img">
+        <img src="./assets/papier.png" id="papier" data-choice="2" class="img">
+        <img src="./assets/ciseaux.png" id="ciseaux" data-choice="3" class="img">
+      </div>
+      <div class="player2">
+        <img id="player2" src="">
+      </div>
+    </div>
+    <h2 id="result"></h2>
+
+
+    <!-- You can also require other files to run in this process -->
+    <script src="./renderer.js"></script>
+  </body>
+</html>
