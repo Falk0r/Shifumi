@@ -1,45 +1,91 @@
-# electron-quick-start
+# Electron-Shifumi
 
-**Clone and run for a quick way to see Electron in action.**
+![Shifumi](https://billetsdemissacacia.files.wordpress.com/2017/11/expo-spacejunk.jpg?w=840)
 
-This is a minimal Electron application based on the [Quick Start Guide](https://electronjs.org/docs/tutorial/quick-start) within the Electron documentation.
+## Projet de découverte d'ElectronJS
 
-**Use this app along with the [Electron API Demos](https://electronjs.org/#get-started) app for API code examples to help you get started.**
+TP effectué lors de ma formation à l'IT-Akademy pour renforcer nos connaissances sur __javascript__. Le TP consistait à mettre en place une application du célébre jeu SHIFUMI et d'utiliser le framework __ElectronJS__ pour découvrir la programmation logiciel avec des technologies issus du web.
 
-A basic Electron application needs just these files:
+## Structuration d'Electron
 
-- `package.json` - Points to the app's main file and lists its details and dependencies.
-- `main.js` - Starts the app and creates a browser window to render HTML. This is the app's **main process**.
-- `index.html` - A web page to render. This is the app's **renderer process**.
+L'application __Electron__ s'articule dans notre cas dans une seule fenêtre, celle de notre jeu du Shifumi.
 
-You can learn more about each of these components within the [Quick Start Guide](https://electronjs.org/docs/tutorial/quick-start).
+La fenêtre principale est donc appelée dans le fichier main.js à partir du code suivant :
 
-## To Use
+```javascript
+function createWindow () {
+  const mainWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      preload: path.join(__dirname, 'preload.js')
+    }
+  })
+  // and load the index.html of the app.
+  mainWindow.loadFile('index.html')
+}
+```
+On demande à __Electron__ de charger le fichier index.html où se déroule le jeu du Shifumi au travers de quelques balises
 
-To clone and run this repository you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+```html
+    <div class="battle" hidden>
+      <div class="player1">
+        <img src="./assets/pierre.png" id="pierre" data-choice="1" class="img">
+        <img src="./assets/papier.png" id="papier" data-choice="2" class="img">
+        <img src="./assets/ciseaux.png" id="ciseaux" data-choice="3" class="img">
+      </div>
+      <div class="player2">
+        <img id="player2" src="">
+      </div>
+    </div>
+    <h2 id="result"></h2>
+```
+Une balise pour le champ de bataille suffit à gérer le gameplay.
+Tout est ensuite gérée par le code __javascript__ présent dans le fichier renderer.js et appelé par le fichier index.html.
+
+## Déroulement du jeu
+
+Tout le gameplay repose sur le fichier renderer.js. Les différentes combinaisons gagnantes sont gérées à l'aide d'un switch et de l'attribution d'un numéro par figure :
+```javascript
+switch (true) {
+    case player1 == 1 && player2 == 3: 
+        result = "win";
+        break;
+    case player1 == 2 && player2 == 1: 
+        result = "win";
+        break;
+    case player1 == 3 && player2 == 2: 
+        result = "win";
+        break;
+    default:
+        result = "loose"
+        break;
+}
+```
+Le reste du code sert à compter les tours et réinitialiser les images. A la fin du jeu, si le joueur remporte la victoire après 3 tentatives, un message de succès apparait dans la fenêtre et petite spécificté d'__Electron__, une notification est envoyé par le système :
+```javascript
+let myNotification = new Notification('Shifumi', {
+            body: 'TU AS GAGNE OMG !!!, va te reposer...',
+            urgency: "critical"
+          })
+```
+
+## Pour l'utiliser :
+
+Pour faire fonctionner ce repo, vous aurez besoin de [Git](https://git-scm.com) et [Node.js](https://nodejs.org/en/download/) (qui inclus [npm](http://npmjs.com)) d'installer sur votre ordinateur. Puis taper les lignes de commande suivante :
 
 ```bash
 # Clone this repository
-git clone https://github.com/electron/electron-quick-start
+git clone https://github.com/Falk0r/Shifumi.git
 # Go into the repository
-cd electron-quick-start
+cd Shifumi
 # Install dependencies
 npm install
 # Run the app
 npm start
 ```
-
-Note: If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
-
-## Resources for Learning Electron
-
-- [electronjs.org/docs](https://electronjs.org/docs) - all of Electron's documentation
-- [electronjs.org/community#boilerplates](https://electronjs.org/community#boilerplates) - sample starter apps created by the community
-- [electron/electron-quick-start](https://github.com/electron/electron-quick-start) - a very basic starter Electron app
-- [electron/simple-samples](https://github.com/electron/simple-samples) - small applications with ideas for taking them further
-- [electron/electron-api-demos](https://github.com/electron/electron-api-demos) - an Electron app that teaches you how to use Electron
-- [hokein/electron-sample-apps](https://github.com/hokein/electron-sample-apps) - small demo apps for the various Electron APIs
-
-## License
-
-[CC0 1.0 (Public Domain)](LICENSE.md)
+<div style="text-align:center;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Electron_Software_Framework_Logo.svg/1200px-Electron_Software_Framework_Logo.svg.png"
+     alt="ElectronJS icon"
+     style="float: center; height: 100px;" />
+</div>
