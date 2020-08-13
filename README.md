@@ -71,7 +71,7 @@ let myNotification = new Notification('Shifumi', {
 ```
 ## Aperçu de l'application :
 
-<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:6689930564289523712" height="741" width="504" frameborder="0" allowfullscreen="" title="Post intégré"></iframe>
+<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:6689930564289523712?compact=1" height="284" width="504" frameborder="0" allowfullscreen="" title="Post intégré"></iframe>
 
 ## Pour l'utiliser :
 
